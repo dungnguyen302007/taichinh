@@ -1,0 +1,48 @@
+/* Fonts */
+:root {
+  /* Color Palette - Premium HSL */
+  --color-primary: 250 80% 60%; /* Vibrant Purple */
+  --color-primary-dark: 250 80% 50%;
+  --color-secondary: 320 70% 60%; /* Pink accent */
+  --color-success: 150 60% 45%; 
+  --color-danger: 350 80% 60%; 
+  
+  --color-background: 220 30% 96%; /* Light elegant gray-blue background */
+  --color-surface: 0 0% 100%;
+  
+  --color-text-main: 220 30% 15%;
+  --color-text-muted: 220 20% 50%;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-blur: 12px;
+}
+
+body.dark {
+  --color-background: 220 30% 10%;
+  --color-surface: 220 25% 15%;
+  --color-text-main: 220 30% 95%;
+  --color-text-muted: 220 20% 65%;
+  --glass-bg: rgba(30, 30, 40, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}

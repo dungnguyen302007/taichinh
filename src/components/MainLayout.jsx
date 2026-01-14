@@ -1,0 +1,18 @@
+import Sidebar from './Sidebar';
+import Header from './Header';
+
+const MainLayout = ({ children }) => {
+    return (
+        <div className="flex min-h-screen bg-slate-50/50">
+            <Sidebar />
+            <div className="flex-1 ml-64 flex flex-col">
+                <Header />
+                <main className="flex-1 p-8 overflow-y-auto">
+                    {children}
+                </main>
+            </div>
+        </div>
+    );
+};
+
+export default MainLayout;
