@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Wallet, TrendingUp, TrendingDown, PieChart } from 'lucide-react';
+import { useFinance } from '../context/FinanceContext';
 
 const Sidebar = () => {
+    const { error } = useFinance();
+
     const navItems = [
         { path: '/', label: 'Tổng quan', icon: LayoutDashboard },
         { path: '/income', label: 'Thu nhập', icon: TrendingUp },
@@ -40,12 +43,21 @@ const Sidebar = () => {
                 ))}
             </nav>
 
-            <div className="p-4 m-4 bg-slate-50 rounded-xl border border-slate-100">
-                <div className="text-xs font-semibold text-slate-400 uppercase mb-2">Trạng thái</div>
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-sm text-slate-600">Đang hoạt động</span>
+            <div className={`p-4 m-4 rounded-xl border ${error ? 'bg-red-50 border-red-100' : 'bg-slate-50 border-slate-100'}`}>
+                <div className={`text-xs font-semibold uppercase mb-2 ${error ? 'text-red-500' : 'text-slate-400'}`}>
+                    {error ? 'Lỗi hệ thống' : 'Trạng thái'}
                 </div>
+
+                {error ? (
+                    <div className="text-xs text-red-600 break-words font-medium">
+                        {error.includes("permission-denied") ? "Chưa cấp quyền Firestore!" : error}
+                    </div>
+                ) : (
+                    <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-sm text-slate-600">Đã kết nối Cloud</span>
+                    </div>
+                )}
             </div>
         </aside>
     );
